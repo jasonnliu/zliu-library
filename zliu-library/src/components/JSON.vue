@@ -106,11 +106,6 @@
         ✨ You're a Vue superstar! ✨
       </p>
       <p v-else class="message">Click the button to see a message.</p>
-      <!-- <button @click="showMessage = !showMessage">Toggle Message</button>
-      <p class="message success">
-        ✨ You're a Vue superstar! ✨
-      </p>
-      <p>Click the button to see a message.</p> -->
     </section>
 
     <section class="lab-section">
