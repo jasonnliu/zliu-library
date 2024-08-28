@@ -3,21 +3,21 @@
 // import TheWelcome from './components/TheWelcome.vue'
 // import JSON from './components/JSON.vue'
 import Form from './components/Form.vue'
+import BHeader from './components/BHeader.vue'
+import LibraryRegistrationForm from './components/LibraryRegistrationForm.vue'
+
 </script>
 
 <template>
-  <Form />
-  <!-- <JSON></JSON> -->
-    <!-- <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+  <header>
+    <BHeader />
+  </header>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div> -->
-  <!-- </header> -->
-
-  <!-- <main>
-    <TheWelcome />
-  </main> -->
+  <main>
+    <!-- <LibraryRegistrationForm /> -->
+    <!-- <JSONLab /> -->
+    <router-view></router-view>
+  </main>
 </template>
 
 <!-- <style scoped>

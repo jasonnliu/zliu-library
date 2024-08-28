@@ -96,6 +96,7 @@ import { ref } from 'vue';
   const formData = ref({
       username: '',
       password: '',
+      confirmPassword: '',
       isAustralian: false,
       reason: '',
       gender: ''
@@ -120,9 +121,10 @@ import { ref } from 'vue';
   const errors = ref({
       username: null,
       password: null,
+      confirmPassword: null,
       resident: null,
       gender: null,
-      reason: null,
+      reason: null
     });
 
   const validateName = (blur) => {
@@ -153,6 +155,14 @@ import { ref } from 'vue';
     if (blur) errors.value.password = "Password must contain at least one special character.";
   } else {
     errors.value.password = null;
+  }
+};
+
+  const validateConfirmPassword = (blur) => {
+  if (formData.value.confirmPassword !== formData.value.password) {
+    if (blur) errors.value.confirmPassword = "Passwords do not match.";
+  } else {
+    errors.value.confirmPassword = null;
   }
 };
 
