@@ -12,10 +12,28 @@
         <li class="nav-item">
           <router-link to="/about" class="nav-link" active-class="active">About</router-link>
         </li>
+        <li class="nav-item" v-if="!isAuthenticated">
+          <router-link to="/login" class="nav-link" active-class="active">Login</router-link>
+        </li>
+        <li class="nav-item" v-if="isAuthenticated">
+          <router-link @click="handleLogout" to="/login" class="nav-link" active-class="active">Logout</router-link>
+        </li>
       </ul>
     </header>
   </div>
 </template>
+
+<script setup>
+import { ref } from 'vue';
+
+const isAuthenticated = ref(JSON.parse(localStorage.getItem('isAuthenticated')))
+
+const handleLogout = () => {
+  localStorage.removeItem('isAuthenticated');
+  isAuthenticated.value = false;
+  router.push('/login');
+};
+</script>
 
 <style scoped>
 .b-example-divider {

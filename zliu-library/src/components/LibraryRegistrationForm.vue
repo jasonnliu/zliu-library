@@ -10,7 +10,7 @@ const formData = ref({
   isAustralian: false,
   reason: '',
   gender: '',
-  suburb: 'Clayton'
+  
 })
 
 const submittedCards = ref([])
