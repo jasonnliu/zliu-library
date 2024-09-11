@@ -18,8 +18,11 @@
         <li class="nav-item">
           <router-link to="/FireLogin" class="nav-link" active-class="active">Firebase Login</router-link>
         </li>
-        <li class="nav-item" v-if="isAuthenticated">
-          <router-link @click="handleLogout" to="/login" class="nav-link" active-class="active">Logout</router-link>
+        <li class="nav-item">
+          <router-link to="/FireRegister" class="nav-link" active-class="active">Firebase Register</router-link>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" @click="logout">Firebase Logout</button>
         </li>
       </ul>
     </header>
@@ -28,14 +31,29 @@
 
 <script setup>
 import { ref } from 'vue';
+import { getAuth, signOut } from 'firebase/auth';
+import { useRouter } from 'vue-router';
 
+const auth = getAuth();
 const isAuthenticated = ref(JSON.parse(localStorage.getItem('isAuthenticated')))
+const router = useRouter();
 
-const handleLogout = () => {
-  localStorage.removeItem('isAuthenticated');
-  isAuthenticated.value = false;
-  router.push('/login');
+const logout = () => {
+  signOut(auth)
+    .then(() => {
+      localStorage.removeItem('isAuthenticated');
+      isAuthenticated.value = false;
+      alert('Logout success');
+      console.log('Firebase logout successful!');
+      console.log('auth.currentUser', auth.currentUser);
+      router.push({ name: 'Home' });
+    })
+    .catch((error) => {
+      alert('An error happened.');
+      console.log('logout error', error);
+    });
 };
+
 </script>
 
 <style scoped>
