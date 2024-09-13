@@ -5,6 +5,8 @@ import LoginView from '../views/LoginView.vue';
 import FirebaseSigninView from '../views/FirebaseSigninView.vue';
 import FirebaseRegisterView from '../views/FireBaseRegisterView.vue';
 import AddBookView from '../views/AddBookView.vue';
+import BookListView from '../views/BookListView.vue';
+import EditBookView from '../views/EditBookView.vue';
 
 const routes = [
   {
@@ -35,8 +37,19 @@ const routes = [
   },
   {
     path: '/addbook',
-    name: 'AddBook',
+    name: 'Addbook',
     component: AddBookView
+  },
+  {
+    path: '/booklist',
+    name: 'booklist',
+    component: BookListView
+  },
+  {
+    path: '/editbook',
+    name: 'editbook',
+    component: EditBookView,
+    props: true
   }
 ]
 
