@@ -65,6 +65,7 @@
         // Get the current weather icon using the API link
         iconUrl() {
           return this.weatherData
+            // Finish the HD part of Week11.
             ? `https://api.openweathermap.org/img/w/${this.weatherData.weather[0].icon}.png`
             : null;
         },
@@ -84,7 +85,8 @@
           if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(async (position) => {
               const { latitude, longitude } = position.coords;
-              // API link to obtain the current weather based on the current location browser identified 
+              // API link to obtain the current weather based on the current location browser identified
+              // Finish the HD part of Week11.
               const url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apikey}`;
               // await means wait for the fetchWeatherData method to complete before proceeding
               await this.fetchWeatherData(url);
